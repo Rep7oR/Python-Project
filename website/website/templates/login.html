@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+   <style>
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.center-button {
+    display: block; /* Make the button a block element to center-align it */
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none !important;
+}
+.center-button:hover {
+    background-color: #27ae60;
+    text-decoration: none !important;
+}
+
+
+
+     /*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+
+	/*background = gradient + image pattern combo*/
+	background:
+		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+}
+
+body {
+	font-family: montserrat, arial, verdana;
+}
+
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+</style>
+</head>
+<body>
+<h1 style="text-align:center;">LOGIN</h1>
+<!-- multistep form -->
+<form id="msform" action="login" method="POST">
+    {% csrf_token %}
+
+<!--    <h2 class="fs-title">LOGIN</h2>-->
+    <h3 class="fs-subtitle"></h3>
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <button type="submit">LOGIN</button>
+</form>
+<a href="{% url 'register' %}"><button class="center-button" style="text-decoration:none !important;">SIGNUP</button></a><br>
+<a href="{% url 'home' %}"><button class="center-button" style="text-decoration:none !important;">Go to Home</button></a><br>
+</form>
+
+</body>
+</html>
